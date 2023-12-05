@@ -1,6 +1,19 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, Cell, Legend, Line } from 'recharts';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  Cell,
+  Legend,
+  Line,
+} from "recharts";
 const totalNumbers = [
   {
     name: "Patients using APA",
@@ -8,11 +21,11 @@ const totalNumbers = [
   },
   {
     name: "Supplementary Insurance Sold",
-    value: 165,
+    value: 200,
   },
   {
     name: "Patients Avoided Hospitalisation",
-    value: 129,
+    value: 200,
   },
 ];
 
@@ -21,9 +34,16 @@ export default function Dashboard() {
     <div className="flex flex-col gap-5 p-5 md:p-10">
       <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
         {totalNumbers.map((item, index) => (
-          <div className="bg-[var(--white)] rounded-md p-10 flex flex-col justify-center items-center" key={index}>
-            <span className="text-[60px] xl:text-[80px] font-[var(--font-bold-3)] text-[var(--primary)]">{item.value}</span>
-            <span className="text-[var(--black)] font-[var(--font-bold-2)]">{item.name}</span>
+          <div
+            className="bg-[var(--white)] rounded-md p-10 flex flex-col justify-center items-center"
+            key={index}
+          >
+            <span className="text-[60px] xl:text-[80px] font-[var(--font-bold-3)] text-[var(--primary)]">
+              {item.value}
+            </span>
+            <span className="text-[var(--black)] font-[var(--font-bold-2)]">
+              {item.name}
+            </span>
           </div>
         ))}
       </div>
@@ -34,7 +54,7 @@ export default function Dashboard() {
         <OpportunityCenter />
       </div>
     </div>
-  )
+  );
 }
 
 const data = [
@@ -108,7 +128,6 @@ const filterItems = [
 ];
 
 const TelehealthRevenueGrowth = () => {
-
   const [telehealthRevenueGrowth, setTelehealthRevenueGrowth] = useState(data);
   const [filter, setFilter] = useState("6 Month");
 
@@ -130,16 +149,22 @@ const TelehealthRevenueGrowth = () => {
       default:
         break;
     }
-  }
+  };
 
   return (
     <div className="bg-[var(--white)] rounded-md p-5 md:p-10 flex flex-col gap-5">
       <div className="flex flex-col items-center gap-5">
-        <span className="text-[var(--black)] text-[24px] font-[var(--font-bold-4)]">Telehealth Revenue Growth</span>
+        <span className="text-[var(--black)] text-[24px] font-[var(--font-bold-4)]">
+          Telehealth Revenue Growth
+        </span>
         <div className="flex gap-2 md:gap-5">
           {filterItems.map((item, index) => (
             <button
-              className={`rounded-full px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm ${filter === item.value ? "bg-[var(--primary-2)] text-[var(--primary)]" : "bg-[var(--primary)] text-[var(--white)]"}`}
+              className={`rounded-full px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm ${
+                filter === item.value
+                  ? "bg-[var(--primary-2)] text-[var(--primary)]"
+                  : "bg-[var(--primary)] text-[var(--white)]"
+              }`}
               key={index}
               onClick={() => handleFilter(item.value)}
             >
@@ -163,12 +188,17 @@ const TelehealthRevenueGrowth = () => {
         >
           <XAxis dataKey="name" />
           <YAxis dataKey="value" />
-          <Area type="monotone" dataKey="value" stroke="#82ca9d" fill="#82ca9d" />
+          <Area
+            type="monotone"
+            dataKey="value"
+            stroke="#82ca9d"
+            fill="#82ca9d"
+          />
         </AreaChart>
       </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
 const ClaimsPayoutVsDeniedClaims = () => {
   const data = [
@@ -209,20 +239,27 @@ const ClaimsPayoutVsDeniedClaims = () => {
     },
   ];
 
-  const [claimsPayoutVsDeniedClaims, setClaimsPayoutVsDeniedClaims] = useState(data);
+  const [claimsPayoutVsDeniedClaims, setClaimsPayoutVsDeniedClaims] =
+    useState(data);
 
   return (
     <div className="bg-[var(--white)] rounded-md p-5 md:p-10 flex flex-col gap-8">
       <div className="flex flex-col items-center gap-5">
-        <span className="text-[var(--black)] text-[24px] font-[var(--font-bold-4)]">Claims Payout vs Denied Claims</span>
+        <span className="text-[var(--black)] text-[24px] font-[var(--font-bold-4)]">
+          Claims Payout vs Denied Claims
+        </span>
         <div className="flex gap-2 md:gap-5">
           <div className="flex gap-2 items-center">
             <div className="w-5 h-5 bg-[var(--primary)]"></div>
-            <span className="text-[var(--black)] font-[var(--font-bold-1)]">Claims Payout</span>
+            <span className="text-[var(--black)] font-[var(--font-bold-1)]">
+              Claims Payout
+            </span>
           </div>
           <div className="flex gap-2 items-center">
             <div className="w-5 h-5 bg-[var(--primary-2)]"></div>
-            <span className="text-[var(--black)] font-[var(--font-bold-1)]">Denied Claims</span>
+            <span className="text-[var(--black)] font-[var(--font-bold-1)]">
+              Denied Claims
+            </span>
           </div>
         </div>
       </div>
@@ -245,8 +282,8 @@ const ClaimsPayoutVsDeniedClaims = () => {
         </BarChart>
       </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
 const DigitalRevenueGrowth = () => {
   const data = [
@@ -321,17 +358,22 @@ const DigitalRevenueGrowth = () => {
       default:
         break;
     }
-  }
-
+  };
 
   return (
     <div className="bg-[var(--white)] rounded-md p-5 md:p-10 flex flex-col gap-5">
       <div className="flex flex-col items-center gap-5">
-        <span className="text-[var(--black)] text-[24px] font-[var(--font-bold-4)]">Digital Revenue Growth</span>
+        <span className="text-[var(--black)] text-[24px] font-[var(--font-bold-4)]">
+          Digital Revenue Growth
+        </span>
         <div className="flex gap-2 md:gap-5">
           {filterItems.map((item, index) => (
             <button
-              className={`rounded-full px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm ${filter === item.value ? "bg-[var(--primary-2)] text-[var(--primary)]" : "bg-[var(--primary)] text-[var(--white)]"}`}
+              className={`rounded-full px-2 py-1 md:px-4 md:py-2 text-xs md:text-sm ${
+                filter === item.value
+                  ? "bg-[var(--primary-2)] text-[var(--primary)]"
+                  : "bg-[var(--primary)] text-[var(--white)]"
+              }`}
               key={index}
               onClick={() => handleFilter(item.value)}
             >
@@ -348,8 +390,8 @@ const DigitalRevenueGrowth = () => {
         </BarChart>
       </ResponsiveContainer>
     </div>
-  )
-}
+  );
+};
 
 const badges = [
   {
@@ -369,9 +411,9 @@ const badges = [
 const OpportunityCenter = () => {
   return (
     <div className="relative bg-[var(--white)] rounded-md p-5 md:p-10 flex flex-col items-center justify-center gap-5">
-      <div className="flex items-center">
-        {
-          badges.map((item, index) => (
+      <Link to={`/dashboard/opportunity-center`}>
+        <div className="flex items-center">
+          {badges.map((item, index) => (
             <div className="flex gap-5 items-center" key={index}>
               <img
                 src={`/assets/icons/${item.name}`}
@@ -379,15 +421,17 @@ const OpportunityCenter = () => {
                 className={`object-contain ${index !== 1 ? "h-36" : "h-60"}`}
               />
             </div>
-          ))
-        }
-      </div>
-      <span className="text-[var(--black)] text-[32px] font-[var(--font-bold-4)]">Opportunity Center</span>
-      <Link
+          ))}
+        </div>
+        <span className="text-[var(--black)] text-[32px] font-[var(--font-bold-4)]">
+          Opportunity Center
+        </span>
+        {/* <Link
         to={`/dashboard/opportunity-center`}
         className="h-14 w-14 bg-white text-[var(--primary)] rounded-full absolute bottom-5 right-5 flex justify-center items-center shadow-xl text-2xl">
         ?
+      </Link> */}
       </Link>
     </div>
-  )
-}
+  );
+};
