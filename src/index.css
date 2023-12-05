@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* creat variblae 3CA5DC */
+
+:root {
+    --primary: #3CA5DC;
+    --primary-2: #E5F2FF;
+    --secondary: #DF535F;
+    --grey-5: #F3F5F6;
+    --grey: #ACACAC;
+    --grey-2: #8A8A8A;
+    --grey-3: #F3F3F3;
+    --grey-4: #F3F5F7;
+    --black: #000000;
+    --black-2: #070808;
+    --white: #FFFFFF;
+    --orange: #F7A025;
+    --font-size-1: 12px;
+    --font-size-2: 14px;
+    --font-size-3: 16px;
+    --font-size-4: 18px;
+    --font-size-5: 20px;
+    --font-size-6: 24px;
+    --font-bold-1: 400;
+    --font-bold-2: 500;
+    --font-bold-3: 600;
+    --font-bold-4: 700;
+    --font-family: "Open Sans", sans-serif;
+    --screen-size: 1920px;
+}
+
+html, body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-3);
+    color: var(--black);
+    background-color: var(--grey-3);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    max-width: var(--screen-size);
+}
+
+label {
+    font-size: var(--font-size-1);
+    font-weight: var(--font-bold-3);
+    color: var(--black-2);
+}
+
+input, textarea {
+    outline: none;
+}
+
+.hide-scroll::-webkit-scrollbar {
+    display: none;
+  }
