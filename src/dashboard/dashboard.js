@@ -8,11 +8,11 @@ const totalNumbers = [
   },
   {
     name: "Supplementary Insurance Sold",
-    value: 200,
+    value: 165,
   },
   {
     name: "Patients Avoided Hospitalisation",
-    value: 200,
+    value: 129,
   },
 ];
 
