@@ -17,15 +17,15 @@ import {
 const totalNumbers = [
   {
     name: "Patients using APA",
-    value: 200,
+    value: 221,
   },
   {
     name: "Supplementary Insurance Sold",
-    value: 200,
+    value: 165,
   },
   {
     name: "Patients Avoided Hospitalisation",
-    value: 200,
+    value: 152,
   },
 ];
 
